@@ -13,10 +13,8 @@ class PluginPeakMonitor(plugintypes.IPluginExtended):
     def show_help(self):
         print("Add callback function to peaks.")
 
-        # called with each new sample
     def __call__(self, sample):
         if sample:
-            # print impedance if supported
             if self.imp_channels > 0:
                 sample_string = "ID: %f\n%s\n%s\n%s" % (sample.id, str(sample.channel_data)[
                                                         1:-1], str(sample.aux_data)[1:-1], str(sample.imp_data)[1:-1])
